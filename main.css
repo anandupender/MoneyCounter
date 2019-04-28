@@ -1,0 +1,83 @@
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Audiowide', cursive;
+}
+body {
+  position: relative;
+}
+
+h1{
+  font-size: 140px;
+  margin: 0px;
+  font-family: 'Bungee Shade', cursive;
+}
+
+h4{
+  font-size: 24px;
+  font-weight: 400;
+}
+
+button{
+    padding:12px;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: block;
+    background-color: white;
+}
+
+input:focus {outline:none;}
+button:focus {outline:none;}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+}
+
+.header-box{
+  height:5vh;
+  text-align: center;
+  padding-top: 3vh;
+  animation: colorchange 10s;
+  -webkit-animation: colorchange 10s;
+}
+
+.message-box{
+  margin:auto;
+  height:20vh;
+  text-align: center;
+  width:75vw;
+}
+
+.button-box{
+  margin: auto;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.number-box{
+  margin: auto;
+}
+
+.footer-box{
+  height:25vh;
+}
+
+@keyframes colorchange
+ {
+   0%   {color: red;}
+   25%  {color: yellow;}
+   50%  {color: blue;}
+   75%  {color: green;}
+   100% {color: red;}
+ }
+
+ @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+ {
+   0%   {color: red;}
+   25%  {color: yellow;}
+   50%  {color: blue;}
+   75%  {color: green;}
+   100% {color: red;}
+ }

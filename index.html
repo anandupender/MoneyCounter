@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Bungee+Shade|VT323" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <div class="main-container">
+
+      <div class="header-box">
+        The Good Place
+      </div>
+
+      <div class="message-box">
+        <h4 id="message"></h4>
+      </div>
+
+      <div class="button-box">
+        <button onclick="change('increase')"<i class="fas fa-plus fa-lg"></i></button>
+      </div>
+
+      <div class="number-box">
+        <h1 id="number">0</h1>
+
+      </div>
+
+      <div class="button-box">
+        <button onclick="change('decrease')""><i class="fas fa-minus fa-lg"></i></button>
+      </div>
+
+      <div class="footer-box">
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+      var globalCurrNum = 0;
+      var number = document.getElementById("number");
+      var message = document.getElementById("message");
+
+      var spendMessages = ["treat yourself!","hope you enjoyed it!","you're frugal enough as it is!","enjoy your youth!","enjoy life, be in the moment"];
+      var saveMessages = ["nice! more for the roth ira","saving up for fun weekend trips to visit family!","nice self discipline"];
+
+      function onLoadFunctions() {
+        var retreivedCount = window.localStorage.getItem('currCount');
+        if(retreivedCount == null || retreivedCount == undefined){
+          window.localStorage.setItem('currCount', '0');
+        }else{
+          globalCurrNum = retreivedCount;
+          if(globalCurrNum > 0){
+            number.innerHTML = "+" + globalCurrNum;
+          }else{
+            number.innerHTML = retreivedCount;
+          }
+        }
+      }
+
+      window.onload = onLoadFunctions;
+
+      function change(thing){
+        if(thing == "increase"){
+          message.innerHTML = spendMessages[Math.floor(Math.random()*spendMessages.length)];
+          globalCurrNum++;
+        }else{
+          message.innerHTML = saveMessages[Math.floor(Math.random()*saveMessages.length)];
+          globalCurrNum--;
+        }
+        number.innerHTML = globalCurrNum;
+        if(globalCurrNum > 0){
+          number.innerHTML = "+" + globalCurrNum;
+        }
+        window.localStorage.setItem('currCount', globalCurrNum);
+      }
+
+    </script>
+
+  </body>
+</html>
