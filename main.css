@@ -27,7 +27,7 @@ h4{
 }
 
 button{
-    padding:18px;
+    padding:12px;
     border: 3px solid black;
     border-radius: 50%;
     display: block;
@@ -62,8 +62,8 @@ h2{
   height:5vh;
   text-align: center;
   padding-top: 3vh;
-  animation: colorchange 10s;
-  -webkit-animation: colorchange 10s;
+  font-weight: bold;
+  opacity: .75;
 }
 
 .message-box{
@@ -101,21 +101,3 @@ h2{
   margin-bottom: -20px;
   opacity: .2;
 }
-
-@keyframes colorchange
- {
-   0%   {color: red;}
-   25%  {color: yellow;}
-   50%  {color: blue;}
-   75%  {color: green;}
-   100% {color: red;}
- }
-
- @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
- {
-   0%   {color: red;}
-   25%  {color: yellow;}
-   50%  {color: blue;}
-   75%  {color: green;}
-   100% {color: red;}
- }
