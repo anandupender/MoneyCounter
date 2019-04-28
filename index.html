@@ -6,9 +6,17 @@
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Bungee+Shade|VT323" rel="stylesheet">
-    <title></title>
+    <title>MoneyCounter</title>
+    <link rel=”apple-touch-icon” href=”images/apple-touch-icon.png”>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
   </head>
   <body>
+
+    <div id="splash-screen">
+      <h2>MoneyCounter</h2>
+    </div>
+
     <div class="main-container">
 
       <div class="header-box">
@@ -54,10 +62,16 @@
           globalCurrNum = retreivedCount;
           if(globalCurrNum > 0){
             number.innerHTML = "+" + globalCurrNum;
+            number.style.color = "red";
           }else{
             number.innerHTML = retreivedCount;
+            number.style.color = "green";
           }
         }
+
+        window.setTimeout(function(){
+          document.getElementById("splash-screen").style.display = "none";
+        },1500);
       }
 
       window.onload = onLoadFunctions;
@@ -73,6 +87,9 @@
         number.innerHTML = globalCurrNum;
         if(globalCurrNum > 0){
           number.innerHTML = "+" + globalCurrNum;
+          number.style.color = "red";
+        }else{
+          number.style.color = "green";
         }
         window.localStorage.setItem('currCount', globalCurrNum);
       }
