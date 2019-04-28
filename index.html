@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0,, user-scalable=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Bungee+Shade|VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Bungee+Shade|VT323" rel="stylesheet">
     <title>MoneyCounter</title>
     <link rel=”apple-touch-icon” href=”images/apple-touch-icon.png”>
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
@@ -32,7 +32,7 @@
       </div>
 
       <div class="number-box">
-        <h1 id="number">0</h1>
+        <h1 id="number">0</h1><span id="dollar">$</span>
 
       </div>
 
@@ -51,8 +51,8 @@
       var number = document.getElementById("number");
       var message = document.getElementById("message");
 
-      var spendMessages = ["treat yourself!","hope you enjoyed it!","you're frugal enough as it is!","enjoy your youth!","enjoy life, be in the moment"];
-      var saveMessages = ["nice! more for the roth ira","saving up for fun weekend trips to visit family!","nice self discipline"];
+      var spendMessages = ["treat yourself!","hope you enjoyed it!","you're frugal enough as it is!","enjoy your youth!","enjoy life, be in the moment","enjoy it!", "well-deserved break"];
+      var saveMessages = ["nice! more for the roth ira","saving up for fun weekend trips to visit family!","nice self discipline","saving up for later","remember all the large expenses you have"];
 
       function onLoadFunctions() {
         var retreivedCount = window.localStorage.getItem('currCount');
@@ -62,10 +62,10 @@
           globalCurrNum = retreivedCount;
           if(globalCurrNum > 0){
             number.innerHTML = "+" + globalCurrNum;
-            number.style.color = "red";
+            number.style.color = "#F1525E";
           }else{
             number.innerHTML = retreivedCount;
-            number.style.color = "green";
+            number.style.color = "#79E894";
           }
         }
 
@@ -84,12 +84,15 @@
           message.innerHTML = saveMessages[Math.floor(Math.random()*saveMessages.length)];
           globalCurrNum--;
         }
+
+        message.style.opacity = 1;
+
         number.innerHTML = globalCurrNum;
         if(globalCurrNum > 0){
           number.innerHTML = "+" + globalCurrNum;
-          number.style.color = "red";
+          number.style.color = "#F1525E";
         }else{
-          number.style.color = "green";
+          number.style.color = "#79E894";
         }
         window.localStorage.setItem('currCount', globalCurrNum);
       }

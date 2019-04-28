@@ -1,7 +1,8 @@
 html, body {
   overflow-x: hidden;
   overflow-y: hidden;
-  font-family: 'Audiowide', cursive;
+  font-family: 'Inconsolata', monospace;
+  background-color: #EFEFEF;
 }
 body {
   position: relative;
@@ -11,6 +12,7 @@ h1{
   font-size: 120px;
   margin: 0px;
   font-family: 'Bungee Shade', cursive;
+  display: inline;
 }
 
 @media only screen and (max-width: 600px) {
@@ -25,11 +27,12 @@ h4{
 }
 
 button{
-    padding:12px;
+    padding:18px;
     border: 3px solid black;
     border-radius: 50%;
     display: block;
-    background-color: white;
+    background-color: #EFEFEF;
+    touch-action: manipulation;
 }
 
 input:focus {outline:none;}
@@ -38,7 +41,6 @@ button:focus {outline:none;}
 #splash-screen{
   height: 100vh;
   width:100vw;
-  background-color: white;
   margin:auto;
 }
 
@@ -53,7 +55,7 @@ h2{
 .main-container{
   display: flex;
   flex-direction: column;
-  height:90vh;
+  height:85vh;
 }
 
 .header-box{
@@ -71,6 +73,11 @@ h2{
   width:75vw;
 }
 
+#message{
+  transition: opacity 2s ease 0s;
+  opacity: .1;
+}
+
 .button-box{
   margin: auto;
   margin-bottom: 0px;
@@ -79,10 +86,20 @@ h2{
 
 .number-box{
   margin: auto;
+  margin-top: 0px;
 }
 
 .footer-box{
-  height:25vh;
+  height:10vh;
+}
+
+#dollar{
+  position: relative;
+  bottom: -16px;
+  font-size: 32px;
+  margin-left: 5px;
+  margin-bottom: -20px;
+  opacity: .2;
 }
 
 @keyframes colorchange
